@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="schedule.css">
+    <title>Schedule Appointment</title>
+</head>
+<body>
+    <header>
+        <div class="small-screen-nav">
+            <a href="index.html">
+                <img src="/assets/nav-logo.png" alt="logo" class="logo">
+            </a>
+            <div class="menu-btn">
+                <i class="fas fa-bars fa-3x"></i>
+            </div>
+        </div>
+        
+        <nav>
+            <a id="home" href="index.html">
+                <img src="/assets/nav-logo.png" alt="logo" class="logo">
+            </a>
+            <h1 id="nav-phone">(123)-456-7890</h1>
+            <ul class="navLinks">
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a  href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li class="current-page"><a href="schedule.html">Schedule Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="break">
+        <h1>Schedule Appointment</h1>
+    </div>
+    <section id="sectionWrap">
+        <section class="schedule-section page pageShow">
+            <div class="services-section">
+                <div class="services-title">
+                    <h1>Choose one or more services</h1>
+                </div>
+                <div class="services">
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="adultCut">
+                        <label for="adultCut"><h2>Adult's Haircut</h2>
+                            <p>$30</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="trim">
+                        <label for="trim"><h2>Beard and Mustache Trim</h2>
+                            <p>$20</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="shave">
+                        <label for="shave"><h2>Hot Lather Shave</h2>
+                            <p>$30</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="facial">
+                        <label for="facial"><h2>Facial</h2>
+                            <p>$30</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="kidCut">
+                        <label for="kidCut"><h2>Kid's Haircut</h2>
+                            <p>$20</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="design">
+                        <label for="design"><h2>Custom Design</h2>
+                            <p>$15</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="coloring">
+                        <label for="coloring"><h2>Coloring</h2>
+                            <p>$30</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="braiding">
+                        <label for="braiding"><h2>Braiding</h2>
+                            <p>$35</p></label>
+                    </div>
+                </div>
+            </div>
+            <div class="staff-members-section">
+                <div class="staff-members-title">
+                    <h1>Choose a staff member</h1>
+                </div>
+                <div class="staff-members">
+                    <input type="radio" name="staff" id="anyone">
+                    <label for="anyone"><h2>Any Staff Member</h2></label>
+                    <input type="radio" name="staff" id="billyBob">
+                    <label for="billyBob"><h2>Billy Bob</h2></label>
+                    <input type="radio" name="staff" id="tMoney">
+                    <label for="tMoney"><h2>T Money</h2></label>
+                    <input type="radio" name="staff" id="william">
+                    <label for="william"><h2>William</h2></label>
+                    <input type="radio" name="staff" id="harold">
+                    <label for="harold"><h2>Harold</h2></label>
+                </div>
+            </div>
+        </section>
+        <section class="dateAndTime page">
+            <div class="date">
+                <label for="date"><h1>Pick A Date</h1></label>
+                <input type="date" name="date" id="date">
+                
+            </div>
+            <div class="time">
+                
+            </div>
+        </section>
+        <section id="apptInfo" class="page">
+            <div class="yourInfo">
+                <h2>Your Contact Information</h2>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone" id="phone">
+            </div>
+        </section>
+        <section id="payment" class="page">
+            <h1>Payment</h1>
+            <p id="disclaimer">(Do NOT use real info!)</p>
+            <div class="paymentMethod">
+                <h2>Choose A Method</h2>
+                <div class="method cardMethod">
+                    <input type="radio" name="method" id="payCard">
+                    <label for="payCard" class="methodLabel" id="cardLabel"><p>Credit/Debit Card</p><i class="fas fa-credit-card fa-2x"></i></label>
+                    <div class="payDetails">
+                        <input type="text" name="noc" id="noc" placeholder="Name On Card">
+                        <input type="number" name="cardNumber" id="cardNumber" placeholder="Card Number">
+                        <p id="expMonth">Exp Month</p>
+                        <p id="expYear">Exp Year</p>
+                        <select name="cardMonth" id="cardMonth">
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <select name="cardYear" id="cardYear">
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                        </select>
+                        <input type="number" name="cvv" id="cvv" max="999" placeholder="CVV">
+                    </div>
+                </div>
+                <div class="method paypalMethod">
+                    <input type="radio" name="method" id="paypal">
+                    <label for="paypal" class="methodLabel" id="paypalLabel"><p>Paypal</p><i class="fab fa-paypal fa-2x"></i></label>
+                    <div class="payDetails">
+                        <input type="text" name="paypalemail" id="paypalemail" placeholder="Paypal Email">
+                        <input type="password" name="paypalpwd" id="paypalpwd" placeholder="Password">
+                    </div>
+                </div>
+                <div class="method appleMethod">
+                    <input type="radio" name="method" id="applePay">
+                    <label for="applePay" class="methodLabel" id="appleLabel"><p>Apple Pay</p><i class="fab fa-apple-pay fa-2x"></i></label>
+                    <div class="payDetails">
+                        <input type="text" name="appleemail" id="appleemail" placeholder="Apple Email">
+                        <input type="password" name="applepwd" id="applepwd" placeholder="Password">
+                    </div>
+                </div>
+                <div class="method googleMethod">
+                    <input type="radio" name="method" id="googlePay">
+                    <label for="googlePay" class="methodLabel" id="googleLabel"><p>Google Pay</p><i class="fab fa-google-pay fa-2x"></i></label>
+                    <div class="payDetails">
+                        <input type="text" name="googleemail" id="googleemail" placeholder="Google Email">
+                        <input type="password" name="googlepwd" id="googlepwd" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="thanks" class="page">
+            <h1>Thank You!</h1>
+            <p>A confirmation has been sent to:</p><p id="confirmEmail"></p>
+        </section>
+        <button id="backBtn">Back</button>
+        <button id="continueBtn">Continue</button>
+    </section>
+    <section class="info">
+        <div class="break">
+            <h1>See What's Up</h1>
+        </div>
+        <div class="info-grid">
+            <h1 id="g-h1">Our Latest Work</h1>
+            <a href="gallery.html" class="gallery"></a>
+            <h1 id="a-h1">Learn More About Us</h1> 
+            <a href="about.html" class="learnMore"></a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footerWrap">
+            <ul class="footerLinks">
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="schedule.html">Schedule Appointment</a></li>
+            </ul>
+            <ul class="hours">
+                <li><h3>Hours</h3></li>
+                <li>Tue-Fri: 7a-7p</li>
+                <li>Sat: 9a-7p</li>
+                <li>Sun-Mon: Closed</li>
+            </ul>
+            <div class="footerLogo">
+                <img src="/assets/barber-logo.png" alt="">
+            </div>
+            <ul class="location">
+                <li><h3>Location</h3></li>
+                <li>123 Main Street</li>
+                <li>Big City, NY 12345</li>
+            </ul>
+            <div class="social">
+                <p>(123)-456-7890</p>
+                    <ul class="icons">
+                        <li><a href="https://instagram.com">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a></li>
+                        <li><a href="https://twitter.com">
+                            <i class="fab fa-twitter fa-2x"></i>
+                        </a></li>
+                        <li><a href="https://facebook.com">
+                            <i class="fab fa-facebook fa-2x"></i>
+                        </a></li>
+                    </ul>
+            </div>
+            <p id="copyright">&copy 2020 Super Cool Barber Shop</p>
+        </div>
+    </footer>
+    <script src="schedule.js"></script>
+</body>
+</html>
