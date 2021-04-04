@@ -26,7 +26,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     height: 4.5rem;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.753);
     font-size: 1.5rem;
     font-weight: bold;
     position: fixed;
@@ -80,7 +80,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     height: 4.5rem;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.753);
     font-size: 1.5rem;
     font-weight: bold;
     position: fixed;
