@@ -4,6 +4,9 @@
     --primary: rgba(124, 37, 116, 1);
     --gradient: linear-gradient(rgb(184, 46, 138), var(--primary));
 }
+html{
+    font-size: 16px;
+}
 
 *{
     margin: 0;
