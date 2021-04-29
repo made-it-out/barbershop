@@ -527,7 +527,7 @@ b{
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        gap: 1rem;
+        column-gap: 1rem;
     }
     .footerLogo{
         grid-area: footer-logo;
