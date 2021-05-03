@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <div class="message-details">
+        <h3><%= message.name %></h3>
+        <p><%= message.email %></p>
+        <p><%= message.body %></p>
+        <p>Sent: <%= message.createdAt.toString().slice(0,24) %></p>
+        <a class="delete" data-doc="<%= message._id %>">
+            <i class="fas fa-trash fa-2x"></i>
+        </a>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/main.js"></script>
+    <script>
+        const trashcan = document.querySelector('a.delete')
+        trashcan.addEventListener('click', (e)=>{
+            const endpoint = `/messages/${trashcan.dataset.doc}`;
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+            .then((response) => response.json())
+            .then(data => window.location.href=data.redirect)
+            .catch(err => console.log(err))
+        })
+    </script>
+</body>
+</html>

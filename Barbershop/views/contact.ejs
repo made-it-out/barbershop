@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/nav-logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+    <title>Contact | Super Cool Barber Shop</title>
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <%- include('./partials/modal.ejs') %>
+    <main>
+        <div class="first-break">
+            <h1>Reach Out To Us</h1>
+        </div>
+        <section class="contact-section">
+            <div class="grid contact-grid">
+                    <div class="number-email">
+                        <h4>(123) 456-7890</h4>
+                        <h4>scb@gmail.com</h4>
+                    </div>
+                    <div class="form-container">
+                        <form action="/messages" method="POST" class="contact-form">
+                            <label for="name">
+                                <input type="text" id="name" name="name" placeholder="Name" required>
+                            </label>
+                            <label for="email">
+                                <input type="email" id="email" name="email" placeholder="Email" required>
+                            </label>
+                            <label for="message">
+                                <textarea id="message" name="message" placeholder="Message" required></textarea>
+                            </label>
+                            <!-- <img id="captcha" src="/assets/captcha-example.png" alt=""> -->
+                            <label for="send">
+                                <button class="btn--wheat" type="submit">Send</button>
+                            </label>
+                        </form>
+                    </div>
+                    <ul class="location">
+                        <li><h4>Location</h4></li>
+                        <li>123 Main Street</li>
+                        <li>Big City, NY 12345</li>
+                    </ul>
+                    <ul class="contact-icons">
+                        <li><a href="https://instagram.com">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a></li>
+                        <li><a href="https://twitter.com">
+                            <i class="fab fa-twitter fa-2x"></i>
+                        </a></li>
+                        <li><a href="https://facebook.com">
+                            <i class="fab fa-facebook fa-2x"></i>
+                        </a></li>
+                    </ul>
+                    <ul class="hours">
+                        <li><h4>Hours</h4></li>
+                        <li>Tue-Fri: 7a-7p</li>
+                        <li>Sat: 9a-7p</li>
+                        <li>Sun-Mon: Closed</li>
+                    </ul>
+            </div>
+            <div id="mapid"></div>
+        </section>
+        <div class="break">
+            <h1>See What's Up</h1>
+        </div>
+        <section class="info">
+            <div class="grid info-grid contact-info-grid">
+                <h2 id="g-h2"><b>Our Latest Work</b></h2>
+                <a href="/gallery" class="gallery">
+                    <img src="/assets/gallery4.jpg" alt="haircut with braids">
+                </a>
+                <h2 id="a-h2"><b>About Us</b></h2> 
+                <a href="/about" class="learnMore">
+                    <img src="/assets/team.jpg" alt="team of barbers">
+                </a>
+            </div>
+        </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+    <script>
+        //Map
+        const mymap = L.map('mapid').setView([40.69271798122979, -74.04697955512947], 5);
+        const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+        const tileURL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const tiles = L.tileLayer(tileURL, {attribution});
+        tiles.addTo(mymap);
+
+        const issIcon = L.icon({
+            iconUrl: '/assets/BarberShop-Pole-RedBlue-2.svg',
+            iconSize: [70, 52],
+            iconAnchor: [35, 26]
+        });
+        const marker = L.marker([40.69271798122979, -74.04697955512947], {icon: issIcon}).addTo(mymap);
+        marker.bindPopup("<b>Super Cool Barbershop</b>")
+    </script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

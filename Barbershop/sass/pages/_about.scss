@@ -1,0 +1,150 @@
+.about-grid{
+    grid-template-areas: 
+    'a1h2'
+    'a1img'
+    'a1p'
+    'a2h2'
+    'a2img1'
+    'a2p1'
+    'a2img2'
+    'a2p2';
+
+    @include mq(1224px){
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 200px);
+        grid-template-areas: 
+        'a1img a1h2'
+        'a1img a1p'
+        'a2h2 a2img1'
+        'a2p1 a2img1'
+        'a2p2 a2img2'
+        '. a2img2';
+        row-gap: 5rem;
+        column-gap: 4rem;
+    }
+}
+
+#a1img{
+    grid-area: a1img;
+}
+#a2img1{
+    grid-area: a2img1;
+}
+#a1h2{
+    grid-area: a1h2;
+}
+#a2h2{
+    grid-area: a2h2;
+}
+#a1p{
+    grid-area: a1p;
+}
+#a2p1{
+    grid-area: a2p1;
+}
+#a2p2{
+    grid-area: a2p2;
+}
+
+/* Line Up */
+.click-on-barber{
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    text-align: center;
+}
+.line-up-grid{
+    grid-template-areas:
+    'profile1'
+    'profile2'
+    'profile3'
+    'profile4';
+    overflow: visible;
+
+    @include mq(1224px){
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+        'profile1 profile2'
+        'profile3 profile4';
+        column-gap: 5rem;
+    }
+}
+
+.barber-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.barber-info img{
+    @include transition-ease;
+}
+
+.barber-info img:hover{
+    transform: scale(0.9);
+    border-radius: 10%;
+}
+.profile-1{
+    grid-area: profile1;
+}
+.profile-2{
+    grid-area: profile2;
+}
+.profile-3{
+    grid-area: profile3;
+}
+.profile-4{
+    grid-area: profile4;
+}
+#profile-1{
+    object-position: left;
+}
+
+#profile-2{
+    object-position: right;
+}
+
+#profile-3 {
+    object-position: 35%;
+}
+
+#profile-4{
+    object-position: 75%;
+}
+.barber-icons {
+    @extend .icons;
+    list-style: none;
+    
+    i{
+        @include transition-ease;
+        
+        &:hover,
+        &:focus{
+            color: $primary;
+        }
+    }
+    
+}
+
+.barber-icons i{
+    color: $dark;
+}
+.line-up a:focus{
+    outline: 5px solid $primary;
+}
+
+/* Info */
+.about-info-grid{
+    grid-template-areas: 
+    's-h2'
+    's-img'
+    'g-h2'
+    'g-img';
+
+    @include mq(1224px){
+        grid-template-areas: 
+        's-h2 g-h2'
+        's-img g-img';
+    }
+}

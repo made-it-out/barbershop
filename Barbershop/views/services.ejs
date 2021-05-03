@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+    <div class="first-break">
+        <h1>Services</h1>
+    </div>
+    <section class="services-section">
+        <div class="container">
+            <div class="grid services-grid">
+                <div id="stmt1" class="servicesStatement">
+                    <h2>Adult's Haircut</h2>
+                    <p>Classic haircut tailored for you</p>
+                    <a href="/schedule" id="adultCut" class="btn--wheat">Schedule Now</a>
+                </div>
+                <img id="img1" src="/assets/barber4.jpg" alt="barber cutting hair with clippers">
+                <img id="img2" src="/assets/beard.png" alt="beard being trimmed with scissors">
+                <div id="stmt2" class="servicesStatement">
+                    <h2>Beard and Mustache Trim</h2> 
+                    <p>Tidy up your face and make it look classy</p>
+                    <a href="/schedule" id="trim" class="btn--wheat">Schedule Now</a>
+                </div>
+                <div id="stmt3" class="servicesStatement">
+                    <h2>Hot Lather Shave</h2>
+                    <p>Straight-razor shave with hot towels</p>
+                    <a href="/schedule" id="shave" class="btn--wheat">Schedule Now</a>
+                </div>
+                <img id="img3"src="/assets/shave.jpg" alt="man being shaved with a straight-razor">
+                <img id="img4"src="/assets/facial.jpg" alt="man getting facial treatment">
+                <div id="stmt4" class="servicesStatement">
+                    <h2>Facial</h2> 
+                    <p>Relaxing treatment to deep clean your skin</p>
+                    <a href="/schedule" id="facial" class="btn--wheat">Schedule Now</a>
+                </div>
+                <div id="stmt5" class="servicesStatement">
+                    <h2>Kid's Haircut</h2>
+                    <p>For ages 12 and under</p>
+                    <a href="/schedule" id="kidCut" class="btn--wheat">Schedule Now</a>
+                </div>
+                <img id="img5"src="/assets/kid-cut.jpg" alt="kid with a haircut">
+                <img id="img6"src="/assets/design.jpg" alt="man with planetary design in his hair">
+                <div id="stmt6" class="servicesStatement">
+                    <h2>Custom Designs</h2> 
+                    <p>Bring your creative ideas to life with a unique haircut</p>
+                    <a href="/schedule" id="design" class="btn--wheat">Schedule Now</a>
+                </div>
+                <div id="stmt7" class="servicesStatement">
+                    <h2>Coloring</h2>
+                    <p>Whether its grey blending or a full rainbow, we've got you covered</p>
+                    <a href="/schedule" id="coloring" class="btn--wheat">Schedule Now</a>
+                </div>
+                <img id="img7"src="/assets/coloring.jpg" alt="rainbow colored hairstyle">
+                <img id="img8"src="/assets/braids.jpg" alt="braided hair">
+                <div id="stmt8" class="servicesStatement">
+                    <h2>Braiding</h2> 
+                    <p>All kinds of braids for all types of hair</p>
+                    <a href="/schedule" id="braiding" class="btn--wheat">Schedule Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="break">
+        <h1>See What's Up</h1>
+    </div>
+    <section class="info">
+        <div class="grid info-grid services-info-grid">
+            <h2 id="g-h2"><b>Our Latest Work</b></h2>
+            <a href="/gallery" class="gallery">
+                <img src="/assets/gallery7.jpg" alt="waves">
+            </a>
+            <h2 id="a-h2"><b>About Us</b></h2> 
+            <a href="/about" class="learnMore">
+                <img src="/assets/team.jpg" alt="team of barbers">
+            </a>
+        </div>
+    </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/services.js"></script>
+</body>
+</html>

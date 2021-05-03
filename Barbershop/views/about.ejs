@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <%- include('./partials/modal.ejs') %>
+    <main>
+        <div class="first-break">
+            <h1>About Us</h1>
+        </div>
+        <section class="about">
+            <div class="container">
+                <div class="grid about-grid">
+                    <img id="a1img" src="/assets/team.jpg" alt="team of barbers">
+                        <h2 id="a1h2"><b>Super powerful motto</b></h2>
+                        <p id="a1p">At Super Cool Barbershop we strive to create long and <b>meaningful relationships</b> with our clients. That’s why we go above and beyond to make sure every visit is special</p>
+                        <h2 id="a2h2"><b>We are leaders in our community</b></h2> 
+                        <p id="a2p1">We encourage learning by offering <b>discounts</b> for kids who read while getting a haircut</p>
+                    <img id="a2img1" src="/assets/reading.jpg" alt="kid reading while getting his hair cut">
+                    <p id="a2p2">We also host a <b>community clean up</b> twice a year to keep our parks looking nice</p>
+                    <img id="a2img2" src="/assets/community-cleanup.jpg" alt="people cleaning up trash">
+                </div>
+            </div>
+        </section>
+        <div class="break">
+            <h1>Our Line Up</h1>
+        </div>
+        <section class="line-up">
+            <div class="click-on-barber">
+                <p>Click on a barber to book with them!</p>
+            </div>
+            <div class="container">
+                <div class="grid line-up-grid">
+                    <div class="barber-info profile-1">
+                        <a href="/schedule" id="billyBob"><img src="/assets/ceo.jpg" alt="Billy Bob" id="profile-1" class="profile-pic"></a>
+                        <h2 class="barber-name"><b>Billy Bob</b></h2>
+                        <p>Born and raised locally, our CEO and founder has over 20 years of experience in the industry. He is truly a master.</p>
+                        <ul class="barber-icons">
+                            <li><a href="https://instagram.com">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </a></li>
+                            <li><a href="https://twitter.com">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a></li>
+                            <li><a href="https://facebook.com">
+                                <i class="fab fa-facebook fa-2x"></i>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="barber-info profile-2">
+                        <a href="/schedule" id="tMoney"><img src="/assets/barber1.jpg" alt="T Money" id="profile-2" class="profile-pic"></a>
+                        <h2 class="barber-name"><b>T Money</b></h2>
+                        <p>Homie been cuttin hair since before you were thought of. Guaranteed to learn something if you sit in his chair.</p>
+                        <ul class="barber-icons">
+                            <li><a href="https://instagram.com">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </a></li>
+                            <li><a href="https://twitter.com">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a></li>
+                            <li><a href="https://facebook.com">
+                                <i class="fab fa-facebook fa-2x"></i>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="barber-info profile-3">
+                        <a href="/schedule" id="william"><img src="/assets/barber2.jpg" alt="William" id="profile-3" class="profile-pic"></a>
+                        <h2 class="barber-name"><b>William</b></h2>
+                        <p>William talks on the phone the whole time he’s lining you up. He also jokes too much but don’t take him too seriously.</p>
+                        <ul class="barber-icons">
+                            <li><a href="https://instagram.com">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </a></li>
+                            <li><a href="https://twitter.com">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a></li>
+                            <li><a href="https://facebook.com">
+                                <i class="fab fa-facebook fa-2x"></i>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="barber-info profile-4">
+                        <a href="/schedule" id="harold"><img src="/assets/barber3.png" alt="Harold" id="profile-4" class="profile-pic"></a>
+                        <h2 class="barber-name"><b>Harold</b></h2>
+                        <p>New addition to our team but the man will get you right.</p>
+                        <ul class="barber-icons">
+                            <li><a href="https://instagram.com">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </a></li>
+                            <li><a href="https://twitter.com">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a></li>
+                            <li><a href="https://facebook.com">
+                                <i class="fab fa-facebook fa-2x"></i>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="break">
+            <h1>See What's Up</h1>
+        </div>
+        <section class="info">
+            <div class="grid info-grid about-info-grid">
+                <h2 id="s-h2"><b>Services We Offer</b></h2>
+                <a href="/services" class="info-services">
+                    <img src="/assets/chair.jpeg" alt="barber's chair">
+                </a>
+                <h2 id="g-h2"><b>View Our Latest Work</b></h2> 
+                <a href="/gallery" class="gallery">
+                    <img src="/assets/afro-taper.jpg" alt="tapered afro">
+                </a>
+            </div>
+        </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/about.js"></script>
+</body>
+</html>

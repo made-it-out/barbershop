@@ -1,0 +1,100 @@
+.services-grid{
+    grid-template-areas:
+    'img1'
+    'stmt1'
+    'img2'
+    'stmt2'
+    'img3'
+    'stmt3'
+    'img4'
+    'stmt4'
+    'img5'
+    'stmt5'
+    'img6'
+    'stmt6'
+    'img7'
+    'stmt7'
+    'img8'
+    'stmt8';
+
+    @include mq(1024px){
+        grid-template-areas: 
+        'stmt1 img1'
+        'img2 stmt2'
+        'stmt3 img3'
+        'img4 stmt4'
+        'stmt5 img5'
+        'img6 stmt6'
+        'stmt7 img7'
+        'img8 stmt8'
+        ;
+    }
+}
+.servicesStatement {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    max-width: 75vw;
+    margin: auto;
+}
+
+.servicesStatement h2{
+    @extend b;
+}
+#stmt1{
+    grid-area: stmt1;
+}
+#stmt2{
+    grid-area: stmt2;
+}
+#stmt3{
+    grid-area: stmt3;
+}
+#stmt4{
+    grid-area: stmt4;
+}
+#stmt5{
+    grid-area: stmt5;
+}
+#stmt6{
+    grid-area: stmt6;
+}
+#stmt7{
+    grid-area: stmt7;
+}
+#stmt8{
+    grid-area: stmt8;
+}
+#img1{
+    grid-area: img1;
+    transform: rotateY(180deg);
+}
+#img2{
+    grid-area: img2;
+}
+#img3{
+    grid-area: img3;
+    transform: rotateY(180deg);
+}
+#img4{
+    grid-area: img4;
+}
+#img5{
+    grid-area: img5;
+}
+#img6{
+    grid-area: img6;
+    transform: rotateY(180deg);
+}
+#img7{
+    grid-area: img7;
+}
+#img8{
+    grid-area: img8;
+    transform: rotateY(180deg);
+}
+.services-info-grid{
+    @extend .contact-info-grid;
+}

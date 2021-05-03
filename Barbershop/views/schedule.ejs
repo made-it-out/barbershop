@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <script src="https://www.paypal.com/sdk/js?client-id=Ae-4HKIAF9B9q5rJxlVnQAI73ckGJHZT6DXvfNfVQ3U7TetELLC-B4FjkCJbgEVRPUWNMYG3zpza9dj2"> // Replace YOUR_CLIENT_ID with your sandbox client ID
+    </script>
+    <%- include('./partials/header.ejs') %>
+    <main>
+    <div class="first-break">
+        <h1>Schedule Appointment</h1>
+    </div>
+    <form action="/thanks" method="POST" id="apptForm">
+    <section id="sectionWrap">
+        <section class="serviceAndStaff page pageShow">
+            <div class="services-section">
+                <div class="services-title">
+                    <h3>Choose one or more services</h3>
+                </div>
+                <div class="services">
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="adultCut" value="Adult's Haircut">
+                        <label for="adultCut"><h4>Adult's Haircut</h4>
+                            <p>$30</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="trim" value="Beard & Mustache Trim">
+                        <label for="trim"><h4>Beard and Mustache Trim</h4>
+                            <p>$20</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="shave" value="Hot Lather Shave">
+                        <label for="shave"><h4>Hot Lather Shave</h4>
+                            <p>$30</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="facial" value="Facial">
+                        <label for="facial"><h4>Facial</h4>
+                            <p>$30</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="kidCut" value="Kid's Haircut">
+                        <label for="kidCut"><h4>Kid's Haircut</h4>
+                            <p>$20</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="design" value="Custom Design">
+                        <label for="design"><h4>Custom Design</h4>
+                            <p>$15</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="coloring" value="Coloring">
+                        <label for="coloring"><h4>Coloring</h4>
+                            <p>$30</p></label>
+                    </div>
+                    <div class="service-option">
+                        <input type="checkbox" name="services" id="braiding" value="Braiding">
+                        <label for="braiding"><h4>Braiding</h4>
+                            <p>$35</p></label>
+                    </div>
+                </div>
+                <input type="number" name="total" id="total" hidden>
+            </div>
+            <div class="staff-members-section">
+                <div class="staff-members-title">
+                    <h3>Choose a staff member</h3>
+                </div>
+                <div class="staff-members">
+                    <input type="radio" name="staff" id="anyone" value="Any Staff Member">
+                    <label for="anyone"><h4>Any Staff Member</h4></label>
+                    <input type="radio" name="staff" id="billyBob" value="Billy Bob">
+                    <label for="billyBob"><h4>Billy Bob</h4></label>
+                    <input type="radio" name="staff" id="tMoney" value="T Money">
+                    <label for="tMoney"><h4>T Money</h4></label>
+                    <input type="radio" name="staff" id="william" value="William">
+                    <label for="william"><h4>William</h4></label>
+                    <input type="radio" name="staff" id="harold" value="Harold">
+                    <label for="harold"><h4>Harold</h4></label>
+                </div>
+            </div>
+        </section>
+        <section class="dateAndTime page">
+            <div class="date">
+                <label for="date"><h3>Pick A Date</h3></label>
+                <input type="date" name="date" id="date">  
+            </div>
+            <div class="time">
+            </div>
+        </section>
+        <section id="apptInfo" class="page">
+            <div class="yourInfo">
+                <h3>Your Contact Information</h3>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone" id="phone" required>
+            </div>
+        </section>
+        <section id="payment" class="page">
+            <h3>Payment</h3>
+            <p id="disclaimer">(Do NOT use real info!)</p>
+            <div id="paypal-button-container"></div>           
+        </section>
+        <a id="backBtn" class="btn--wheat">Back</a>
+        <a id="continueBtn" class="btn--wheat">Continue</a>
+        <button type="submit" class="btn--purp" id="submitBtn">Submit</button>
+    </section>
+    </form>
+    <div class="break">
+        <h1>See What's Up</h1>
+    </div>
+    <section class="info">
+        <div class="grid info-grid schedule-info-grid">
+            <h2 id="g-h2">Our Latest Work</h2>
+            <a href="/gallery" class="gallery">
+                <img src="/assets/gallery2.jpg" alt="fade haircut">
+            </a>
+            <h2 id="a-h2">About Us</h2> 
+            <a href="/about" class="learnMore">
+                <img src="/assets/team.jpg" alt="team of barbers">
+            </a>
+        </div>
+    </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/schedule.js"></script>
+</body>
+</html>

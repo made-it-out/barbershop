@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+        <div class="first-break">
+            <h1>Messages</h1>
+        </div>
+        <div class="messages">
+            <div class="message-headers">
+                <h3 id="header-name">Name</h3>
+                <h3 id="header-email">Email</h3>
+                <h3 id="header-message">Message</h3>
+                <h3 id="header-date">Date</h3>
+            </div>
+            <% if(messages.length > 0) { %>
+                <% messages.forEach(message =>{ %>
+                    <div class="single-message">
+                        <a href="/messages/<%= message._id %>">
+                            <p id="message-name"><%= message.name %></p>
+                            <p id="message-email"><%= message.email %></p>
+                            <p id="message-body"><%= message.body %></p>
+                            <p id="message-date"><%= message.createdAt.toString().slice(4,10) %></p>
+                        </a>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="single-message">
+                    <p>No messages</p>
+                </div>
+            <% }%>  
+        </div>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+#sectionWrap{
+    position: relative;
+    max-width: 1100px;
+    padding: 8rem 0;
+    margin: auto;
+    background-color: $light;
+    display: flex;
+    justify-content: center;
+}
+
+.serviceAndStaff{
+    display: none;
+    row-gap: 3rem;
+    position: relative;
+    max-width: 90vw;
+
+    input[type=checkbox],
+    input[type=radio]{
+        display: none;
+    }
+
+    input:checked + label{
+        background-color: $primary;
+        color: $light;
+    }
+
+    input:checked + label::before{
+        display: none;
+    }
+
+    label{
+        display: inline-block;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        padding: 0 .4rem;
+        transition: all 250ms ease-out;
+
+        &::before{
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        content: '';
+        width: 100%;
+        }
+
+        &:hover::before{
+            background-color: $label-hover;
+        }
+    }
+
+    @include mq(1224px){
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 4rem;
+    }
+}
+.services-title,
+.staff-members-title{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.services label::before{
+    height: 10%;
+}
+
+.staff-members label::before{
+    height: 13%;
+}
+
+.services,
+.staff-members{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: $box-shadow;
+    padding: 1.3rem 0;
+    position: relative;
+}
+
+/* Date And Time */
+.dateAndTime{
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin: 4rem auto;
+    width: 90vw;
+}
+#date{
+    transform: scale(1.7);
+    width: max-content;
+    margin: 2rem 0;
+}
+.date{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.time{
+    text-align: center;
+    width: 100%;
+}
+.time-title{
+    margin-bottom: 2rem;
+}
+
+.time-list{
+    display: flex;
+    flex-direction: column;
+    box-shadow: $box-shadow;
+    max-width: 500px;
+    margin: 0 auto;
+
+    label{
+        border-bottom: 1px solid rgba(211, 211, 211, 0.5);
+        font-size: 1.5rem;
+        position: relative;
+
+        &:hover::before{
+            background-color: $label-hover;
+        }
+
+        &::before{
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            content: '';
+            width: 40vw;
+            max-width: 500px;
+            height: 100%;
+        }
+    }
+
+    input{
+        display: none;
+
+        &:checked + label{
+            background-color: $primary;
+            color: $light;
+        }
+        &:checked + label::before{
+            display: none;
+        }
+    }
+}
+
+/* Your Info */
+#apptInfo{
+    margin: 0 auto;
+    position: relative;
+    grid-template-rows: 400px 1fr;
+
+    @include mq(1024px){
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        column-gap: 5rem;
+    }
+}
+.yourInfo{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    max-width: 400px;
+    gap: 1rem;
+
+    h3{
+        text-align: center;
+    }
+    input{
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: $dark 1px solid;
+        height: 2rem;
+        font-size: 1.5rem;
+
+        &:focus{
+            outline: none;
+            border-bottom: solid 3px $primary;
+        }
+    }
+} 
+/* Appointment Details */
+
+.apptDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: $box-shadow;
+    padding: 1.5rem;
+    width: 90vw;
+    height: fit-content;
+    max-width: 400px;
+    max-height: max-content;
+
+    i{
+        text-align: center;
+        padding-bottom: .5rem;
+    }
+
+    .detailsList{
+        list-style: none;
+        margin: 1rem 0;
+    }
+    li{
+        margin-bottom: .5rem;       
+    }
+}
+/* Payment */
+#payment{
+    width: 90vw;
+    min-height: max-content;
+    
+    h3{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .apptDetails{
+        margin: 0 auto;
+    }
+
+    #paypal-button-container{
+        margin: 4rem auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 500px;
+    }
+} 
+#disclaimer{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.page{
+    display: none;
+    transition: transform 500ms ease-out;
+}
+.pageShow{
+    transform: translateX(0);
+    display: block;
+}
+.serviceAndStaff.pageShow{
+    display: grid;
+}
+.dateAndTime.pageShow{
+    display: flex;
+}
+#apptInfo.pageShow{
+    display: grid;
+}
+#thanks{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    max-width: 90vw;
+    margin: 4.5rem auto;
+    gap: 1.5rem;
+}
+
+#backBtn,
+#continueBtn,
+#submitBtn{
+    position: absolute;
+    bottom: 1rem;
+}
+#backBtn{
+    left: 1rem;
+    display: none;
+}
+#continueBtn,
+#submitBtn{
+    right: 1rem;
+    display: none;
+}
+
+.schedule-info-grid{
+    grid-template-areas: 
+    'g-h2'
+    'g-img'
+    'a-h2'
+    'a-img';
+
+    @include mq(1224px){
+        grid-template-areas: 
+        'g-h2 a-h2'
+        'g-img a-img';
+    }
+}

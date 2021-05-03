@@ -1,0 +1,101 @@
+/* Contact */
+.contact-grid{
+    max-width: 1100px;
+    grid-template-areas: 
+    'number-email'
+    'contact-form'
+    'contact-location'
+    'contact-hours'
+    'contact-icons';
+
+    ul{
+        list-style: none;
+    }
+
+    .location{
+        grid-area: contact-location;
+    }
+    .hours{
+        grid-area: contact-hours;
+    }
+
+    @include mq(768px){
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 4rem);
+        grid-template-areas: 
+    'number-email contact-form'
+    'contact-location contact-form'
+    'contact-hours contact-form'
+    'contact-icons contact-form';
+    }
+}
+.number-email{
+    grid-area: number-email;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact-icons{
+    @extend .barber-icons;
+    grid-area: contact-icons;
+    justify-content: center;
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    grid-area: contact-form;
+
+    #name,
+    #email{
+        height: 2.5rem;
+        width: 20rem;
+        font-size: 1.2rem;
+        border: solid 2px gray;
+    }
+    #message{
+        width: 20rem;
+        height: 8rem;
+        font-size: 1.2rem;
+        border: solid 2px gray;
+    }
+    #message,
+    #name,
+    #email{
+        max-width: 75vw;
+    }
+
+    #name:focus,
+    #email:focus,
+    #message:focus {
+        border: solid 3px $primary;
+        outline: $primary;
+    }
+}
+
+
+
+/* #captcha{
+    max-width: 28rem;
+} */
+
+/* Map */
+#mapid{
+    height: 300px;
+    z-index: 1;
+}
+/* Info - Contact */
+.contact-info-grid{
+    grid-template-areas: 
+    'g-h2'
+    'g-img'
+    'a-h2'
+    'a-img';
+
+    @include mq(1224px){
+        grid-template-areas: 
+        'g-h2 a-h2'
+        'g-img a-img';
+    }
+}

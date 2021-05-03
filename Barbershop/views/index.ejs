@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <%- include('./partials/modal.ejs') %>
+    <main>
+        <section class="hero">
+            <div class="cta">
+                <h1>Super Cool Barber Shop</h1>
+                <a href="/schedule" class="btn--wheat">Schedule Now</a>
+            </div>
+        </section>
+        <div class="break">
+            <h1>More Than Just A Taper</h1>
+        </div>
+        <section class="message">
+            <div class="container">
+                <div class="grid index-grid">
+                    <img id="grid-img1" src="/assets/waves.jpg" alt="guy with waves in barber's chair">
+                    <h2 id="m1h2"><b>Quality</b></h2>
+                    <p id="m1p">With over <b>20</b> years of experience, you can be sure that our barbers will provide you with the best haircut possible</p>
+                    <h2 id="m2h2"><b>Versatility</b></h2> 
+                    <p id="m2p">All of our barbers are capable of a wide range of styles to help you look your best</p>
+                    <img id="grid-img2" src="/assets/kid-design.jpg" alt="kid with a design in his hair">
+                </div>
+            </div>
+        </section>
+        <div class="break">
+            <h1>See What's Up</h1>
+        </div>
+        <section class="info">
+            <div class="grid info-grid index-info-grid">
+                <h2 id="s-h2"><b>Services We Offer</b></h2>
+                <a href="/services" class="info-services">
+                    <img src="/assets/chair.jpeg" alt="barber's chair">
+                </a>
+                    <h2 id="a-h2"><b>About Us</b></h2> 
+                    <a href="/about" class="learnMore">
+                        <img src="/assets/team.jpg" alt="team of barbers">
+                    </a>
+            </div>
+        </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+/* Hero */
+.hero {
+    background-size: cover;
+    background-image: url(/assets/barbershop2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cta{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(49, 47, 47, 0.705);
+    color: $light;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+/* Message */
+
+
+.index-grid{
+    grid-template-areas: 
+    'm1h2'
+    'img1'
+    'm1p'
+    'm2h2'
+    'img2'
+    'm2p';
+
+    @include mq(1024px){
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 200px);
+        grid-template-areas: 
+        'img1 m1h2'
+        'img1 m1p'
+        'm2h2 img2'
+        'm2p img2';
+    }
+}
+
+#grid-img1{
+    grid-area: img1;
+    transform: rotateY(180deg);
+}
+#grid-img2{
+    grid-area: img2;
+}
+#m1h2{
+    grid-area: m1h2;
+}
+#m2h2{
+    grid-area: m2h2;
+}
+#m1p{
+    grid-area: m1p;
+}
+#m2p{
+    grid-area: m2p;
+}
+
+
+
+/* Info Grid - Index */
+
+.index-info-grid{
+    grid-template-areas: 
+    's-h2'
+    's-img'
+    'a-h2'
+    'a-img';
+
+    @include mq(1224px){
+        grid-template-areas: 
+        's-h2 a-h2'
+        's-img a-img';
+    }
+}

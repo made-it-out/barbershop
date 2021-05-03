@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+        <div class="first-break">
+            <h1>Appointments</h1>
+        </div>
+        <div class="appointments">
+            <div class="appointment-headers">
+                <h4 id="header-name">Name</h4>
+                <h4 id="header-services">Services</h4>
+                <h4 id="header-staff">Staff</h4>
+                <h4 id="header-date">Date</h4>
+                <h4 id="header-time">Time</h4>
+                <h4 id="header-total">Total</h4>
+                <h4 id="header-method">Payment Method</h4>
+            </div>
+            <% if(appointments.length > 0) { %>
+                <% appointments.forEach(appointment =>{ %>
+                    <div class="single-appointment">
+                        <a href="/appointments/<%= appointment._id %>">
+                            <p id="appointment-name"><%= appointment.name %></p>
+                            <p id="appointment-services"><%= appointment.services %></p>
+                            <p id="appointment-staff"><%= appointment.staff %></p>
+                            <p id="appointment-date"><%= appointment.date %></p>
+                            <p id="appointment-time"><%= appointment.time %></p>
+                            <p id="appointment-total">$<%= appointment.total %></p>
+                            <p id="appointment-method"><%= appointment.method %></p>
+                        </a>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="single-appointment">
+                    <p>No appointments</p>
+                </div>
+            <% }%>  
+        </div>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/main.js"></script>
+</body>
+</html>

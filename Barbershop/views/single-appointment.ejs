@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <div class="appointment-details">
+        <div id="single-appointment-name">
+            <h4>Name</h4><p><%= appointment.name %></p>
+        </div>
+        <div id="single-appointment-email">
+            <h4>Email</h4><p><%= appointment.email %></p>
+        </div>
+        <div id="single-appointment-phone">
+            <h4>Phone</h4><p><%= appointment.phone %></p>
+        </div>
+        <div id="single-appointment-services">
+            <h4>Services</h4><p><%= appointment.services %></p>
+        </div>
+        <div id="single-appointment-staff">
+            <h4>Staff</h4><p><%= appointment.staff %></p>
+        </div>
+        <div id="single-appointment-date">
+            <h4>Date</h4><p><%= appointment.date %></p>
+        </div>
+        <div id="single-appointment-time">
+            <h4>Time</h4><p><%= appointment.time %></p>
+        </div>
+        <div id="single-appointment-total">
+            <h4>Total</h4><p>$<%= appointment.total %></p>
+        </div>
+        <a class="delete" data-doc="<%= appointment._id %>">
+            <i class="fas fa-trash fa-2x"></i>
+        </a>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+
+    <script>
+        const trashcan = document.querySelector('a.delete')
+        trashcan.addEventListener('click', (e)=>{
+            const endpoint = `/appointments/${trashcan.dataset.doc}`;
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+            .then((response) => response.json())
+            .then(data => window.location.href=data.redirect)
+            .catch(err => console.log(err))
+        })
+    </script>
+</body>
+</html>

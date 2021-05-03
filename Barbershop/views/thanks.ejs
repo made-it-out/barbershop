@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+    <section id="thanks">
+        <h1><b>Thank You</b></h1>
+        <p>A confirmation email has been sent to <%= email %></p>
+        <div class="apptDetails">
+            <h3>Appointment Details</h3>
+                <ul class="detailsList">
+                    <li id="apptServices"><h4>Service</h4><%= services %></li>
+                    <li id="apptBarber"><h4>Staff</h4><%= staff %></li>
+                    <li id="apptDate"><h4>Date</h4><%= date %></li>
+                    <li id="apptTime"><h4>Time</h4><%= time %></li>
+                    <li id= "total"><h4><b>Total</b></h4>$<%= total %></li>
+                </ul>
+                <i>*There is a $15 fee for appointments cancelled less than 24 hours before their scheduled time</i>
+        </div>
+    </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+    <script src="main.js"></script>
+</body>
+</html>
