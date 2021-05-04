@@ -1,14 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
+require('dotenv').config()
 const mainRoutes = require('./routes/mainRoutes')
 const adminRoutes = require('./routes/adminRoutes')
-
 
 const app = express()
 
 const PORT = process.env.PORT || 5000
 //connect to mongodb
-const dbURI = 'mongodb+srv://made-it-out:test12345@mycluster.2t33q.mongodb.net/barbershop?retryWrites=true&w=majority'
+const dbURI = process.env.DB_URI
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
 .then((result)=>{
     app.listen(PORT);
