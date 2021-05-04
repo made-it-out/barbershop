@@ -132,7 +132,7 @@ p {
 .first-break {
   width: 100vw;
   height: 16rem;
-  background-image: var(--gradient);
+  background-image: linear-gradient(#b82e8a, #7c2574);
   color: #fff;
   text-align: center;
   display: flex;

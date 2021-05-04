@@ -42,7 +42,7 @@
 .first-break{
     width: 100vw;
     height: 16rem;
-    background-image: var(--gradient);
+    background-image: $gradient;
     color: $light;
     text-align: center;
     display: flex;
