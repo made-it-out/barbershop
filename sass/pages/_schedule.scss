@@ -149,13 +149,17 @@
 /* Your Info */
 #apptInfo{
     margin: 0 auto;
+    padding: 0 3rem;
     position: relative;
     grid-template-rows: 400px 1fr;
 
     @include mq(1024px){
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr;
-        column-gap: 5rem;
+
+        .apptDetails{
+            grid-column: 3/4;
+        }
     }
 }
 .yourInfo{
