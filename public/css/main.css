@@ -185,6 +185,14 @@ p {
   overflow: visible;
 }
 
+.info-grid a {
+  justify-self: center;
+  max-width: 75vw;
+  max-height: 75vw;
+  width: 450px;
+  height: 450px;
+}
+
 .info-grid img, .info-grid a {
   transition: all 400ms ease-in-out;
 }
