@@ -9,7 +9,7 @@ const app = express()
 const port = process.env.PORT || 5000
 //connect to mongodb
 const dbURI = process.env.DB_URI
-mongoose.connect('mongodb+srv://made-it-out:test12345@mycluster.2t33q.mongodb.net/barbershop', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(`${dbURI}`, {useNewUrlParser: true, useUnifiedTopology: true})
 .then((result)=>{
     app.listen(port);
 })
