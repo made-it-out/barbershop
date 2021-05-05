@@ -350,6 +350,10 @@ p {
   z-index: 100;
 }
 
+.small-screen-nav a {
+  max-height: 4rem;
+}
+
 .menu-btn {
   color: #fff;
   position: fixed;
@@ -395,7 +399,7 @@ nav .logo {
 .logo {
   max-height: 4rem;
   margin-left: 3rem;
-  border-radius: 40%;
+  border-radius: 50%;
   transition: transform 300ms ease-in-out;
 }
 
