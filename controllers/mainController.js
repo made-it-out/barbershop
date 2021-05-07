@@ -1,4 +1,5 @@
 const Appointment = require('../models/appointment')
+const nodemailer = require('nodemailer')
 
 const index = (req, res)=>{
     res.status(200).render('index', {title: ''})
@@ -38,6 +39,30 @@ const thanks = (req,res)=>{
     .catch(err => console.log(err))
 }
 
+const newsletter = (req,res) => {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: `${process.env.MAIL_USER}`,
+            pass: `${process.env.MAIL_PASS}`
+        }
+    });
+    const mailOptions = {
+        from: `${process.env.MAIL_USER}`,
+        to: `${req.body.modalEmail}`,
+        subject: 'Super Cool Barber Shop',
+        text: `Thanks for signing up to our newsletter!`
+    };
+    transporter.sendMail(mailOptions, (err, info) =>{
+        if(err){
+            console.log(err);
+        } else{
+            console.log(`Email sent: ${info.response}`);
+        }
+    })
+    res.redirect('/')
+}
+
 module.exports = {
     index,
     about,
@@ -45,5 +70,6 @@ module.exports = {
     services,
     gallery,
     schedule,
-    thanks
+    thanks,
+    newsletter
 }
