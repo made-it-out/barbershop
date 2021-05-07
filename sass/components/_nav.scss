@@ -18,7 +18,7 @@
 }
 
 .menu-btn{
-    color: #fff;
+    color: $light;
     position: fixed;
     top: 0;
     right: 3rem;
@@ -55,10 +55,21 @@ nav{
 
 
 #nav-phone{
-    color: #fff;
-    font-size: 1.5rem;
+    color: $light;
+    font-size: 2rem;
     padding-left: 1rem;
     
+}
+#admin-link{
+    text-decoration: none;
+    color: $light;
+    letter-spacing: 2px;
+    transition: color 600ms ease;
+    padding-left: 1rem;
+
+    &:hover{
+        color: $primary;
+    }
 }
 
 .logo{
@@ -81,7 +92,7 @@ nav{
 
 .navLinks a{
     text-decoration: none;
-    color: #fff;
+    color: $light;
     letter-spacing: 2px;
     transition: color 600ms ease;
 }
@@ -127,7 +138,8 @@ nav{
 }
 
 @include mq(1224px){
-    #nav-phone{
+    #nav-phone,
+    #admin-link{
         display: inline-block;
         padding-left: 0;
     }

@@ -1,5 +1,7 @@
 const Message = require('../models/message')
 const Appointment = require('../models/appointment')
+const User = require('../models/user')
+const jwt = require('jsonwebtoken')
 
 //Appointments
 const apptIndex = (req,res) =>{
@@ -64,13 +66,80 @@ const singleMsgDelete = (req,res)=>{
     .catch(err => console.log(err))
 }
 
+//handle errors
+const handleErrors = (err) =>{
+    console.log(err.message, err.code);
+    let errors = {email: '', password: ''}
+
+    //incorrect email
+    if(err.message === 'incorrect email'){
+        errors.email = 'Email is not registered'
+    }
+    //incorrect password
+    if(err.message === 'incorrect password'){
+        errors.password = 'Password is incorrect'
+    }
+
+    //duplicate error code (for sign up)
+    // if(err.code === 11000){
+    //     errors.email = 'That email is already registered';
+    //     return errors;
+    // }
+
+    //validation errors
+    if(err.message.includes('user validation failed')){
+        Object.values(err.errors).forEach(({properties}) =>{
+            errors[properties.path] = properties.message
+        })
+    }
+    return errors
+}
+
+//jwt
+const maxAge = 24*60*60;
+const createToken = (id) =>{    
+    return jwt.sign({id}, process.env.JWT_SECRET, {
+        expiresIn: maxAge
+    })
+}
+
+const loginGet = (req,res) =>{
+    res.render('login', {title: 'Login | '})
+}
+const loginPost = async (req,res) =>{
+    const {email, password} = req.body
+
+    try{
+        const user = await User.login(email, password)
+        const token = createToken(user._id)
+        res.cookie('jwt', token, {httpOnly: true, maxAge: maxAge*1000})
+        res.status(200).json({user: user._id})
+    }
+    catch(err){
+        const errors = handleErrors(err);
+        res.status(400).json({errors})
+    }
+}
+
+const logoutGet = (req,res) =>{
+    res.cookie('jwt', '', {maxAge: 1})
+    res.redirect('/login')
+}
+
+const adminGet = (req,res) => {
+    res.render('admin', {title: 'Admin | '})
+}
+
 module.exports = {
     apptIndex,
-    //apptPost,
     singleApptGet,
     singleApptDelete,
     msgIndex,
     msgPost,
     singleMsgGet,
-    singleMsgDelete
+    singleMsgDelete,
+    loginGet,
+    loginPost,
+    logoutGet,
+    adminGet
 }

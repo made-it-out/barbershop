@@ -6,6 +6,11 @@
             <li><a href="/services">Services</a></li>
             <li><a href="/gallery">Gallery</a></li>
             <li><a href="/schedule">Schedule Appointment</a></li>
+            <% if(user) {%>
+                <li><a href="/logout">Log Out</a></li>
+            <%} else {%>
+                <li><a href="/login">Log In</a></li>
+            <%}%>
         </ul>
         <ul class="hours">
             <li><h4>Hours</h4></li>

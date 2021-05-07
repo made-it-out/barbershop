@@ -7,7 +7,7 @@ const about = (req, res)=>{
     res.status(200).render('about', {title: 'About | '})
 }
 const contact = (req, res)=>{
-    res.status(200).render('contact', {title: 'Contact'})
+    res.status(200).render('contact', {title: 'Contact | '})
 }
 const services = (req, res)=>{
     res.status(200).render('services', {title: 'Services | '})

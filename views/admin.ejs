@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <div class="first-break">
+        <h1>Admin Portal</h1>
+    </div>
+    <div class="grid admin-grid">
+        <a href="/appointments">
+            <i class="fas fa-calendar-day fa-3x"></i>
+            <h3>Appointments</h3>
+        </a>
+        <a href="/messages">
+            <i class="fas fa-envelope fa-3x"></i>
+            <h3>Messages</h3>
+        </a>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/main.js"></script>
+</body>
+</html>

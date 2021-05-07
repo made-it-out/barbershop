@@ -12,7 +12,13 @@
         <a id="home" href="/">
             <img src="/assets/nav-logo.PNG" alt="logo" class="logo">
         </a>
-        <h3 id="nav-phone">(123) 456-7890</h3>
+        <% if(user) {%>
+            <a href="/admin" id="admin-link">
+                <h3>Admin</h3>
+            </a>
+        <%} else {%>
+            <h3 id="nav-phone">(123) 456-7890</h3>
+        <%}%>
         <ul class="navLinks">
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>

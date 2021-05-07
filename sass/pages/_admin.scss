@@ -1,0 +1,12 @@
+.admin-grid{
+    a{
+        text-decoration: none;
+        color: $primary;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    @include mq(768px){
+        grid-template-columns: 1fr 1fr;
+    }
+}
