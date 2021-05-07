@@ -35,6 +35,33 @@ const thanks = (req,res)=>{
     appointment.save()
     .then(result =>{
         res.render('thanks', {title: 'Thank You | ', email: req.body.email, services: req.body.services, staff: req.body.staff, date: req.body.date, time: req.body.time, total: req.body.total})
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: `${process.env.MAIL_USER}`,
+                pass: `${process.env.MAIL_PASS}`
+            }
+        });
+        const mailOptions = {
+            from: `${process.env.MAIL_USER}`,
+            to: `${req.body.email}`,
+            subject: `Super Cool Barber Shop`,
+            html: `<h1>Appointment Details</h1>
+            <h3>Services:</h3> <p>${req.body.services}</p>
+            <h3>Staff:</h3> <p>${req.body.staff}</p>
+            <h3>Date:</h3> <p>${req.body.date}</p>
+            <h3>Time:</h3> <p>${req.body.time}</p>
+            <h3>Total:</h3> <b>${req.body.total}</b>
+            
+            <i>*There is a $15 fee for appointments cancelled less than 24 hours before their scheduled time</i>`
+        };
+        transporter.sendMail(mailOptions, (err, info) =>{
+            if(err){
+                console.log(err);
+            } else{
+                console.log(`Email sent: ${info.response}`);
+            }
+        })
     })
     .catch(err => console.log(err))
 }
