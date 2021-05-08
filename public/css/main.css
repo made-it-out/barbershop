@@ -782,7 +782,7 @@ footer {
 @media only screen and (min-width: 768px) {
   .contact-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 4rem);
+    grid-template-rows: repeat(4, 6.5rem);
     grid-template-areas: 'number-email contact-form' 'contact-location contact-form' 'contact-hours contact-form' 'contact-icons contact-form';
   }
 }
@@ -834,9 +834,17 @@ footer {
   outline: #7c2574;
 }
 
-/* #captcha{
-    max-width: 28rem;
-} */
+.contact-form .g-recaptcha {
+  grid-area: captcha;
+  align-self: center;
+}
+
+.contact-form .error {
+  color: crimson;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
 /* Map */
 #mapid {
   height: 300px;

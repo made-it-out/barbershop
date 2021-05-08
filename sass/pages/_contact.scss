@@ -18,10 +18,10 @@
     .hours{
         grid-area: contact-hours;
     }
-
+    
     @include mq(768px){
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 4rem);
+        grid-template-rows: repeat(4, 6.5rem);
         grid-template-areas: 
     'number-email contact-form'
     'contact-location contact-form'
@@ -72,13 +72,17 @@
         border: solid 3px $primary;
         outline: $primary;
     }
+    .g-recaptcha{
+        grid-area: captcha;
+        align-self: center;
+    }
+    .error{
+        color: crimson;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
 }
 
-
-
-/* #captcha{
-    max-width: 28rem;
-} */
 
 /* Map */
 #mapid{

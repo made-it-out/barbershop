@@ -15,7 +15,7 @@
                         <h4>scb@gmail.com</h4>
                     </div>
                     <div class="form-container">
-                        <form action="/messages" method="POST" class="contact-form">
+                        <form class="contact-form" id="contact-form">
                             <label for="name">
                                 <input type="text" id="name" name="name" placeholder="Name" required>
                             </label>
@@ -25,7 +25,8 @@
                             <label for="message">
                                 <textarea id="message" name="message" placeholder="Message" required></textarea>
                             </label>
-                            <!-- <img id="captcha" src="/assets/captcha-example.png" alt=""> -->
+                            <div class="g-recaptcha" data-sitekey="6Lc4_coaAAAAADP55VRuLbI-zXthmAGHNfRh0hG4"></div>
+                            <div class="captcha error"></div>
                             <label for="send">
                                 <button class="btn--wheat" type="submit">Send</button>
                             </label>
@@ -81,13 +82,40 @@
         const tiles = L.tileLayer(tileURL, {attribution});
         tiles.addTo(mymap);
 
-        const issIcon = L.icon({
+        const barberPole = L.icon({
             iconUrl: '/assets/BarberShop-Pole-RedBlue-2.svg',
             iconSize: [70, 52],
             iconAnchor: [35, 26]
         });
-        const marker = L.marker([40.69271798122979, -74.04697955512947], {icon: issIcon}).addTo(mymap);
+        const marker = L.marker([40.69271798122979, -74.04697955512947], {icon: barberPole}).addTo(mymap);
         marker.bindPopup("<b>Super Cool Barbershop</b>")
+    </script>
+    <script>
+        const captchaError = document.querySelector('.captcha.error')
+        captchaError.style.display = 'none'
+        document.getElementById('contact-form').addEventListener('submit', (e)=>{
+            e.preventDefault();
+            const name = document.querySelector('#name').value;
+            const email = document.querySelector('#email').value;
+            const message = document.querySelector('#message').value;
+            const captcha = document.querySelector('#g-recaptcha-response').value;
+
+            fetch('/messages', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body:JSON.stringify({name, email, message, captcha})
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.msg){
+                    captchaError.style.display = 'inline'
+                    captchaError.textContent = data.msg
+                }
+                if(data.captchaSuccess){
+                    location.reload();
+                }
+            });
+        })
     </script>
     <script src="/js/main.js"></script>
 </body>

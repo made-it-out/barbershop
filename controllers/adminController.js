@@ -2,6 +2,7 @@ const Message = require('../models/message')
 const Appointment = require('../models/appointment')
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
+const request = require('request')
 
 //Appointments
 const apptIndex = (req,res) =>{
@@ -38,16 +39,36 @@ const msgIndex = (req, res)=>{
     .catch(err => console.log(err))
 }
 const msgPost = (req,res)=>{
-    const message = new Message({
-        name: req.body.name,
-        email: req.body.email,
-        body: req.body.message
-    })
-    message.save()
-    .then(result =>{
-        res.redirect('/contact')
-    })
-    .catch(err => console.log(err))
+    console.log(req.body);
+    if(!req.body.captcha){
+        return res.json({"success": false, "msg":"Please complete captcha"})
+    }
+    //Verify URL
+    const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.G_KEY}&response=${req.body.captcha}&remoteip=${req.connection.remoteAddress}`;
+    //Make Request to VerifyURL
+    request(verifyUrl, (err, response, body) => {
+        body = JSON.parse(body);
+        console.log(body);
+        //If not successful
+        if(body.success !== true){
+            console.log(body);
+            return res.json({"success": false, "msg":"Failed captcha verification"})
+        }
+        //If successful
+        if(body.success === true){
+            const message = new Message({
+                name: req.body.name,
+                email: req.body.email,
+                body: req.body.message
+            })
+            message.save()
+            .then(result =>{
+                return res.json({"captchaSuccess": true})
+            })
+            .catch(err => console.log(err))
+        }
+        
+    }); 
 }
 const singleMsgGet = (req,res)=>{
     const id = req.params.id
