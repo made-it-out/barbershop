@@ -14,6 +14,7 @@ burger.addEventListener('click', () =>{
 //Modal
 const modal = document.getElementById('modal')
 const modalCloseBtn = document.getElementById('modalCloseBtn')
+const modalScheduleBtn = document.getElementById('modalScheduleBtn')
 const modalSignup = document.getElementById('modalSignup')
 const modalContent = document.getElementById('modalContent')
 const modalEmail = document.getElementById('modalEmail')
@@ -31,6 +32,9 @@ modalCloseBtn.addEventListener('click', () =>{
     modal.style.display = 'none'
     modalContent.classList.remove('modalFadeIn')
     document.body.style.overflow = ''
+    sessionStorage.setItem('modalSeen', true)
+})
+modalScheduleBtn.addEventListener('click', () =>{
     sessionStorage.setItem('modalSeen', true)
 })
 modalSignup.addEventListener('click', () =>{
