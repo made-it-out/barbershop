@@ -1,4 +1,5 @@
 const Appointment = require('../models/appointment')
+const Email = require('../models/email')
 const nodemailer = require('nodemailer')
 
 const index = (req, res)=>{
@@ -67,27 +68,37 @@ const thanks = (req,res)=>{
 }
 
 const newsletter = (req,res) => {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: `${process.env.MAIL_USER}`,
-            pass: `${process.env.MAIL_PASS}`
-        }
-    });
-    const mailOptions = {
-        from: `${process.env.MAIL_USER}`,
-        to: `${req.body.modalEmail}`,
-        subject: 'Super Cool Barber Shop',
-        text: `Thanks for signing up to our newsletter!`
-    };
-    transporter.sendMail(mailOptions, (err, info) =>{
-        if(err){
-            console.log(err);
-        } else{
-            console.log(`Email sent: ${info.response}`);
-        }
+    const freshEmail = new Email({
+        email: req.body.modalEmail
     })
-    res.redirect('/')
+    freshEmail.save()
+    .then(result => {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: `${process.env.MAIL_USER}`,
+                pass: `${process.env.MAIL_PASS}`
+            }
+        });
+        const mailOptions = {
+            from: `${process.env.MAIL_USER}`,
+            to: `${req.body.modalEmail}`,
+            subject: 'Super Cool Barber Shop',
+            text: `Thanks for signing up to our newsletter!`
+        };
+        transporter.sendMail(mailOptions, (err, info) =>{
+            if(err){
+                console.log(err);
+            } else{
+                console.log(`Email sent: ${info.response}`);
+            }
+        })
+        res.redirect('/')
+    })
+    .catch(err => {
+        res.redirect('/')
+    })
+   
 }
 
 module.exports = {
