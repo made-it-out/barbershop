@@ -632,7 +632,6 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 200px);
     grid-template-areas: 'a1img a1h2' 'a1img a1p' 'a2h2 a2img1' 'a2p1 a2img1' 'a2p2 a2img2' '. a2img2';
-    row-gap: 5rem;
     column-gap: 4rem;
   }
 }

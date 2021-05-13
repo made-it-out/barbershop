@@ -462,55 +462,26 @@ const contactName = document.getElementById('name')
 const contactEmail = document.getElementById('email')
 const contactPhone = document.getElementById('phone')
 contactName.addEventListener('input', () =>{
-    if(contactName.value !== '' && contactEmail.value !== '' && contactPhone.value !== ''){
+    if(contactName.value !== '' && (contactEmail.value !== '' && contactEmail.value.includes('@')) && contactPhone.value !== ''){
         continueBtn.style.display = 'inline'
     } else{
         continueBtn.style.display = 'none'
     }
 })
 contactEmail.addEventListener('input', () =>{
-    if(contactName.value !== '' && contactEmail.value !== '' && contactPhone.value !== ''){
+    if(contactName.value !== '' && (contactEmail.value !== '' && contactEmail.value.includes('@')) && contactPhone.value !== ''){
         continueBtn.style.display = 'inline'
     } else{
         continueBtn.style.display = 'none'
     }
 })
 contactPhone.addEventListener('input', () =>{
-    if(contactName.value !== '' && contactEmail.value !== '' && contactPhone.value !== ''){
+    if(contactName.value !== '' && (contactEmail.value !== '' && contactEmail.value.includes('@')) && contactPhone.value !== ''){
         continueBtn.style.display = 'inline'
     } else{
         continueBtn.style.display = 'none'
     }
 })
-
-
-//Payment Method
-const payMethod = document.querySelectorAll('.method')
-const payDetails = document.querySelectorAll('.payDetails')
-const methodLabels = document.querySelectorAll('.methodLabel')
-const cardLabel = document.getElementById('cardLabel')
-const appleLabel = document.getElementById('appleLabel')
-const googleLabel = document.getElementById('googleLabel')
-const paypalLabel = document.getElementById('paypalLabel')
-//Card Details
-const noc = document.getElementById('noc')
-const cardNumber = document.getElementById('cardNumber')
-const cardMonth = document.getElementById('cardMonth')
-const cardYear = document.getElementById('cardYear')
-const cvv = document.getElementById('cvv')
-//Paypal
-const paypalEmail = document.getElementById('paypalemail')
-const paypalPwd = document.getElementById('paypalpwd')
-//Apple Pay
-const appleEmail = document.getElementById('appleemail')
-const applePwd = document.getElementById('applepwd')
-//Google Pay
-const googleEmail = document.getElementById('googleemail')
-const googlePwd = document.getElementById('googlepwd')
-
-
-
-
 
 //Services & Staff
 const serviceInputs = document.querySelectorAll('[name="services"]')
@@ -547,8 +518,6 @@ staff.forEach(input => {
         }
     })
 })
-
-// module.exports = apptDetails
 
 //paypal
 paypal.Buttons({
