@@ -440,7 +440,7 @@ const contactPhone = document.getElementById('phone');
 contactName.addEventListener('input', () => {
     sessionStorage.setItem('contactName', contactName.value);
     if (contactName.value !== '' && (contactEmail.value !== '' && contactEmail.value.includes('@')) && contactPhone.value !== '') {
-        paySection.style.display = 'inline'
+        paySection.style.display = 'block'
     } else {
         paySection.style.display = 'none'
     }
@@ -448,7 +448,7 @@ contactName.addEventListener('input', () => {
 contactEmail.addEventListener('input', () => {
     sessionStorage.setItem('contactEmail', contactEmail.value);
     if (contactName.value !== '' && (contactEmail.value !== '' && contactEmail.value.includes('@')) && contactPhone.value !== '') {
-        paySection.style.display = 'inline'
+        paySection.style.display = 'block'
     } else {
         paySection.style.display = 'none'
     }
@@ -456,7 +456,7 @@ contactEmail.addEventListener('input', () => {
 contactPhone.addEventListener('input', () => {
     sessionStorage.setItem('contactPhone', contactPhone.value);
     if (contactName.value !== '' && (contactEmail.value !== '' && contactEmail.value.includes('@')) && contactPhone.value !== '') {
-        paySection.style.display = 'inline'
+        paySection.style.display = 'block'
     } else {
         paySection.style.display = 'none'
     }
