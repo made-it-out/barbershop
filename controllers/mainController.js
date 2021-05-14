@@ -20,9 +20,28 @@ const gallery = (req, res)=>{
 const schedule = (req, res)=>{
     res.status(200).render('schedule', {title: 'Schedule Appointment | '})
 }
+//Check what times are available
+const available = (req, res) => {
+    const staff = req.params.staff;
+    const date = req.params.date;
+    //declare array of taken times
+    let taken = [];
+    //search DB for appointments with the same staff member and date
+    Appointment.find({staff, date})
+    .then(result => {
+        //for each appt in DB, push the appt time into taken array
+        result.forEach(appt => {
+            taken.push(appt.time);
+        });
+        //send taken to client
+        res.json(taken);
+    })
+    .catch(err => console.log(err))
+}
 const thanks = (req,res)=>{
     console.log('request made');
     console.log(req.body);
+    //Create new appointment
     const appointment = new Appointment({
         services: req.body.services,
         staff: req.body.staff,
@@ -36,6 +55,7 @@ const thanks = (req,res)=>{
     appointment.save()
     .then(result =>{
         res.render('thanks', {title: 'Thank You | ', email: req.body.email, services: req.body.services, staff: req.body.staff, date: req.body.date, time: req.body.time, total: req.body.total})
+        //Send email with appt details
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -68,11 +88,13 @@ const thanks = (req,res)=>{
 }
 
 const newsletter = (req,res) => {
+    //Save email from modal
     const freshEmail = new Email({
         email: req.body.modalEmail
     })
     freshEmail.save()
     .then(result => {
+        //Send email
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -108,6 +130,7 @@ module.exports = {
     services,
     gallery,
     schedule,
+    available,
     thanks,
     newsletter
 }

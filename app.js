@@ -5,6 +5,7 @@ const mainRoutes = require('./routes/mainRoutes')
 const adminRoutes = require('./routes/adminRoutes')
 const cookieParser = require('cookie-parser')
 const {checkUser} = require('./middleware/authMiddleware')
+const Appointment = require('./models/appointment')
 
 const app = express()
 

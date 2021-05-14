@@ -1264,17 +1264,8 @@ footer {
   margin: 0 auto;
   padding: 0 3rem;
   position: relative;
-  grid-template-rows: 400px 1fr;
-}
-
-@media only screen and (min-width: 1024px) {
-  #apptInfo {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
-  #apptInfo .apptDetails {
-    grid-column: 3/4;
-  }
+  row-gap: 2rem;
+  grid-template-areas: 'yourInfo' 'apptDetails' 'payment';
 }
 
 .yourInfo {
@@ -1283,6 +1274,7 @@ footer {
   width: 90vw;
   max-width: 400px;
   gap: 1rem;
+  grid-area: yourInfo;
 }
 
 .yourInfo h3 {
@@ -1315,6 +1307,7 @@ footer {
   height: fit-content;
   max-width: 400px;
   max-height: max-content;
+  grid-area: apptDetails;
 }
 
 .apptDetails i {
@@ -1334,7 +1327,10 @@ footer {
 /* Payment */
 #payment {
   width: 90vw;
+  max-width: 400px;
   min-height: max-content;
+  display: none;
+  grid-area: payment;
 }
 
 #payment h3 {
