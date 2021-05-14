@@ -7,6 +7,7 @@ window.addEventListener('load', () => {
     sessionStorage.removeItem('contactName')
     sessionStorage.removeItem('contactEmail')
     sessionStorage.removeItem('contactPhone')
+    window.scrollTo(0, 0);
 })
 window.addEventListener('unload', () => {
     sessionStorage.removeItem('refer')
@@ -143,6 +144,8 @@ continueBtn.addEventListener('click', () => {
                 sessionStorage.setItem('staff', "Harold")
                 apptDetails.staff = "Harold"
             }
+            dateControl.value = null;
+            availableTimes.textContent = '';
             pages[i].classList.add('pageShow');
             pages[i - 1].classList.remove('pageShow');
             backBtn.style.display = 'inline';
@@ -195,14 +198,17 @@ backBtn.addEventListener('click', () => {
             pages[i + 1].classList.remove('pageShow');
             pages[i].classList.add('pageShow');
             continueBtn.style.display = 'inline';
+            window.scrollTo(0, 0);
             break;
         case 3:
             pages[i + 1].classList.remove('pageShow');
             pages[i].classList.add('pageShow');
+            window.scrollTo(0, 0);
             break;
         case 2:
             pages[i + 1].classList.remove('pageShow');
             pages[i].classList.add('pageShow');
+            window.scrollTo(0, 0);
             apptInfoSection.appendChild(apptDetailsContainer);
             break;
         case 1:
@@ -213,6 +219,7 @@ backBtn.addEventListener('click', () => {
             sessionStorage.removeItem('contactName')
             sessionStorage.removeItem('contactEmail')
             sessionStorage.removeItem('contactPhone')
+            window.scrollTo(0, 0);
             break;
         case 0:
             pages[i + 1].classList.remove('pageShow');
@@ -223,6 +230,7 @@ backBtn.addEventListener('click', () => {
             servicesStorage = []
             prices = []
             backBtn.style.display = 'none';
+            window.scrollTo(0, 0);
             break;
     }
 
