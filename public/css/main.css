@@ -360,7 +360,7 @@ p {
 
 .menu-btn {
   color: #fff;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 3rem;
   z-index: 102;
@@ -1375,17 +1375,6 @@ footer {
 
 #apptInfo.pageShow {
   display: grid;
-}
-
-#thanks {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  max-width: 90vw;
-  margin: 4.5rem auto;
-  gap: 1.5rem;
 }
 
 #backBtn,
