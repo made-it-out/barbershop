@@ -16,24 +16,20 @@ window.addEventListener('unload', () => {
 //Side Nav
 const burger = document.querySelector('.menu-btn');
 const nav = document.querySelector('nav');
-const smallScreenNav = document.querySelector('.small-screen-nav');
-const smallScreenNavLogo = document.querySelector('.small-screen-nav a')
 
 burger.addEventListener('click', () => {
     nav.classList.toggle('open')
     if (nav.classList.contains('open')) {
         burger.innerHTML = '<i class="fas fa-times fa-3x"></i>'
-        smallScreenNavLogo.style.display = 'none'
     } else {
         burger.innerHTML = '<i class="fas fa-bars fa-3x"></i>'
-        smallScreenNavLogo.style.display = 'block'
     }
 })
 
 //Sections
 const sectionWrap = document.querySelector('#sectionWrap');
-const serviceAndStaff = document.querySelector('.serviceAndStaff');
 const apptForm = document.getElementById('apptForm');
+const serviceAndStaff = document.querySelector('.serviceAndStaff');
 const dateSection = document.querySelector('.dateAndTime');
 const apptInfoSection = document.querySelector('#apptInfo');
 const paySection = document.querySelector('#payment');
@@ -63,13 +59,13 @@ const kidCutPrice = 20
 const designPrice = 15
 const coloringPrice = 30
 const braidingPrice = 35
-const apptTotal = document.getElementById('total')
+const apptTotal = document.getElementById('apptTotal');
 //Staff
-const anyone = document.getElementById('anyone')
-const billyBob = document.getElementById('billyBob')
-const tMoney = document.getElementById('tMoney')
-const william = document.getElementById('william')
-const harold = document.getElementById('harold')
+const anyone = document.getElementById('anyone');
+const billyBob = document.getElementById('billyBob');
+const tMoney = document.getElementById('tMoney');
+const william = document.getElementById('william');
+const harold = document.getElementById('harold');
 //Appointment Details
 const apptDetails = {
     services: servicesStorage,
@@ -77,15 +73,18 @@ const apptDetails = {
     date: '',
     time: '',
     total: ''
-}
-const apptDetailsContainer = document.createElement('div')
-apptDetailsContainer.classList.add('apptDetails')
+};
+const apptServices = document.getElementById('apptServices');
+const apptBarber = document.getElementById('apptBarber');
+const apptDate = document.getElementById('apptDate');
+const apptTime = document.getElementById('apptTime');
+// const apptTotal = document.getElementById('apptTotal');
 
 //Page Flip
 let i = 0;
 continueBtn.addEventListener('click', () => {
     continueBtn.style.display = 'none'
-    if (i < 4 && i > -2) {
+    if (i < 3 && i > -1) {
         i++
     } switch (i) {
         case 1:
@@ -158,17 +157,11 @@ continueBtn.addEventListener('click', () => {
             apptDetails.total = prices.reduce((sum, price) => sum + price, 0)
             apptTotal.value = apptDetails.total
             //Display appointment details
-            apptDetailsContainer.innerHTML =
-                `<h3>Appointment Details</h3>
-            <ul class="detailsList">
-                <li id="apptServices"><h4>Service</h4>${apptDetails.services}</li>
-                <li id="apptBarber"><h4>Staff</h4>${apptDetails.staff}</li>
-                <li id="apptDate"><h4>Date</h4>${apptDetails.date}</li>
-                <li id="apptTime"><h4>Time</h4>${apptDetails.time}</li>
-                <li id= "total"><h4><b>Total</b></h4>$${apptDetails.total}</li>
-            </ul>
-            <i>*There is a $15 fee for appointments cancelled less than 24 hours before their scheduled time</i>`
-            apptInfoSection.prepend(apptDetailsContainer)
+            apptServices.innerHTML =`<h4>Service</h4>${apptDetails.services}`;
+            apptBarber.innerHTML = `<h4>Staff</h4>${apptDetails.staff}`;
+            apptDate.innerHTML = `<h4>Date</h4>${apptDetails.date}`;
+            apptTime.innerHTML = `<h4>Time</h4>${apptDetails.time}`;
+            apptTotal.innerHTML = `<h4><b>Total</b></h4>$${apptDetails.total}`;
             pages[i].classList.add('pageShow');
             pages[i - 1].classList.remove('pageShow');
             window.scrollTo(0, 0)
@@ -194,22 +187,10 @@ backBtn.addEventListener('click', () => {
     console.log(i)
     console.log(pages[i])
     switch (i) {
-        case 4:
-            pages[i + 1].classList.remove('pageShow');
-            pages[i].classList.add('pageShow');
-            continueBtn.style.display = 'inline';
-            window.scrollTo(0, 0);
-            break;
-        case 3:
-            pages[i + 1].classList.remove('pageShow');
-            pages[i].classList.add('pageShow');
-            window.scrollTo(0, 0);
-            break;
         case 2:
             pages[i + 1].classList.remove('pageShow');
             pages[i].classList.add('pageShow');
             window.scrollTo(0, 0);
-            apptInfoSection.appendChild(apptDetailsContainer);
             break;
         case 1:
             pages[i + 1].classList.remove('pageShow');

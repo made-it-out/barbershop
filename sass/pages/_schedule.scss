@@ -145,26 +145,18 @@
         }
     }
 }
-
 /* Your Info */
 #apptInfo{
     margin: 0 auto;
-    padding: 0 3rem;
     position: relative;
     row-gap: 2rem;
-    grid-template-areas: 
-    'yourInfo'
-    'apptDetails'
-    'payment'
-    ;
+    width: 90vw;
+    max-width: 400px;
 }
 .yourInfo{
     display: flex;
     flex-direction: column;
-    width: 90vw;
-    max-width: 400px;
     gap: 1rem;
-    grid-area: yourInfo;
 
     h3{
         text-align: center;
@@ -192,11 +184,8 @@
     text-align: center;
     box-shadow: $box-shadow;
     padding: 1.5rem;
-    width: 90vw;
     height: fit-content;
-    max-width: 400px;
     max-height: max-content;
-    grid-area: apptDetails;
 
     i{
         text-align: center;
@@ -213,11 +202,9 @@
 }
 /* Payment */
 #payment{
-    width: 90vw;
-    max-width: 400px;
     min-height: max-content;
     display: none;
-    grid-area: payment;
+    z-index: 1;
     
     h3{
         text-align: center;
@@ -243,11 +230,6 @@
 
 .page{
     display: none;
-    transition: transform 500ms ease-out;
-}
-.pageShow{
-    transform: translateX(0);
-    display: block;
 }
 .serviceAndStaff.pageShow{
     display: grid;

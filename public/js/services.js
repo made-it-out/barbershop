@@ -1,8 +1,6 @@
 //Side Nav
 const burger = document.querySelector('.menu-btn');
 const nav = document.querySelector('nav');
-const smallScreenNav = document.querySelector('.small-screen-nav');
-
 burger.addEventListener('click', () =>{
     nav.classList.toggle('open')
     if(nav.classList.contains('open')){
