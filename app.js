@@ -15,10 +15,11 @@ const port = process.env.PORT || 5000
 app.set('view engine', 'ejs')
 
 //middleware and static files
-app.use(express.static('public'))
-app.use(express.urlencoded({extended: true}))
+app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
+app.use(checkUser);
 
 //connect to mongodb
 const dbURI = process.env.DB_URI
@@ -28,7 +29,7 @@ mongoose.connect(`${dbURI}`, {useNewUrlParser: true, useUnifiedTopology: true})
 })
 .catch((err) => console.log(err))
 
-app.use(checkUser)
+
 //main routes
 app.use(mainRoutes)
 
